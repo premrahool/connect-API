@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Supplier API</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/apibootstrap.css">
+      <script src="js/apijquery.js"></script>
+      <script src="js/apipopper.js"></script>
+      <script src="js/apibootstrap.js"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="css/apistyle.css">
+      <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+   </head>
+   <body>
+      <section class="apisctn">
+         <div class="container-fluid">
+            <div class="vertab-container ">
+               <div class="row ">
+                  <div class="col-lg-2 col-md-2 col-sm-12">
+                     <div class="row vertab-menu">
+                        <div class="stickySide">
+                            <a href="index.html" class="apilogo">
+                            <img src="images/logo.png" alt="logo" class="img-fluid img-responsive"> </a>
+                            <p class=" text-left leftsd-head"> Supplier API  </p	>
+                            <div class="listScroll">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item text-left active"> Get Project List </a>
+                                    <a href="#" class="list-group-item text-left"> Get Project Detail </a>
+                                    <a href="#" class="list-group-item text-left"> Get Targeting </a>
+                                    <a href="#" class="list-group-item text-left"> Get Project Quota </a>
+                                    <a href="#" class="list-group-item text-left"> Get Country List </a>
+                                    <a href="#" class="list-group-item text-left"> Get Project Status </a>
+                                    <a href="#" class="list-group-item text-left"> Get Project Statistics </a>
+                                    <a href="#" class="list-group-item text-left"> Get Redirect Links </a>
+                                    <a href="#" class="list-group-item text-left"> Get Question Library </a>
+                                    <a href="#" class="list-group-item text-left"> Get Question Options </a>
+                                    <!-- <a href="#" class="list-group-item text-left"> Get Authorization Key </a> -->
+                                    <a href="#" class="list-group-item text-left"> Hashing Mechanism </a>
+                                    <!-- <a href="#" class="list-group-item text-left"> Get Project Quota </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div id="accordion" class="col-lg-10 col-md-10 col-sm-12 vertab-accordion panel-group">
+                    <div class="row">
+                        <div class="vertab-content active">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">
+                                    Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Project List:	</h5>
+                                    <p> This API will allow supplier(s) to see the all mapped project linked to them. </p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane-A" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        <!-- </li>
+                                        <li class="nav-item">
+                                        <a id="tab-B" href="#pane-B" class="nav-link" data-toggle="tab" role="tab">PHP</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a id="tab-C" href="#pane-C" class="nav-link" data-toggle="tab" role="tab">Node.js</a>
+                                        </li> -->
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane-A" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Definition</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetProjectList' </span> \ --header 'x-api-key:
+                                            &lt; Key Provided to you &gt;
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Type</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span> "Type" </span>: <span class="txt2colr"> GET,<br> </span>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            {<br>
+                                            <span>"projectId" </span>:<span class="txt2colr">  50001, </span> <br>
+                                            <span>"projectCode" </span>:<span class="txt2colr">  "IMC50001", </span> <br>
+                                            <!-- <span>"projectName" </span>:<span class="txt2colr">  "Social Media usage", </span> <br> -->
+                                            <span>"projectCategory" </span>:<span class="txt2colr">  "Healthcare", </span> <br>
+                                            <span>"cpi" </span>:<span class="txt2colr">  "0.50", </span> <br>
+                                            <span>"countryCode" </span>:<span class="txt2colr">  "IN", </span> <br>
+                                            <span>"country" </span>:<span class="txt2colr">  "India", </span> <br>
+                                            <span>"surveyLink" </span>:<span class="txt2colr">  "https://st-redirect.imadconnect.com/Router/Index?tid=xxxx&uid=[identifier]", </span> <br>
+                                            <span>"loi" </span>:<span class="txt2colr">  2, </span> <br>
+                                            <span>"ir" </span>:<span class="txt2colr">  "45.00", </span> <br>
+                                            <span>"startDate" </span>:<span class="txt2colr">  "2020-12-30", </span> <br>
+                                            <span>"endDate" </span>:<span class="txt2colr">  "2021-02-28", </span> <br>
+                                            <span>"sampleSize" </span>:<span class="txt2colr">  100, </span> <br>
+                                            <span>"deviceType" </span>: {<br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"mobile" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"tablet" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"desktop" </span>:<span class="txt2colr">  true </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; }, <br>
+                                            }<br><br>
+                                            
+                                            {<br>
+                                                <span>"projectId" </span>:<span class="txt2colr">  50002, </span> <br>
+                                                <span>"projectCode" </span>:<span class="txt2colr">  "IMC50002", </span> <br>
+                                                <!-- <span>"projectName" </span>:<span class="txt2colr">  "Social Media usage", </span> <br> -->
+                                                <span>"projectCategory" </span>:<span class="txt2colr">  "B2B", </span> <br>
+                                                <span>"cpi" </span>:<span class="txt2colr">  "9.00", </span> <br>
+                                                <span>"countryCode" </span>:<span class="txt2colr">  "GB", </span> <br>
+                                                <span>"country" </span>:<span class="txt2colr">  "United Kingdom of Gr", </span> <br>
+                                                <span>"surveyLink" </span>:<span class="txt2colr">  "https://st-redirect.imadconnect.com/Router/Index?tid=xxxx&uid=[identifier]", </span> <br>
+                                                <span>"loi" </span>:<span class="txt2colr">  12, </span> <br>
+                                                <span>"ir" </span>:<span class="txt2colr">  "65.00", </span> <br>
+                                                <span>"startDate" </span>:<span class="txt2colr">  "2021-01-03", </span> <br>
+                                                <span>"endDate" </span>:<span class="txt2colr">  "2021-01-31", </span> <br>
+                                                <span>"sampleSize" </span>:<span class="txt2colr">  50, </span> <br>
+                                            <span>"deviceType" </span>: {<br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"mobile" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"tablet" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"desktop" </span>:<span class="txt2colr">  true </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; }, <br>
+                                            }<br><br>
+                                            
+                                            {<br>
+                                                <span>"projectId" </span>:<span class="txt2colr">  50005, </span> <br>
+                                                <span>"projectCode" </span>:<span class="txt2colr">  "IMC50005", </span> <br>
+                                                <!-- <span>"projectName" </span>:<span class="txt2colr">  "Social Media usage", </span> <br> -->
+                                                <span>"projectCategory" </span>:<span class="txt2colr">  "B2B", </span> <br>
+                                                <span>"cpi" </span>:<span class="txt2colr">  "2.50", </span> <br>
+                                                <span>"countryCode" </span>:<span class="txt2colr">  "IN", </span> <br>
+                                                <span>"country" </span>:<span class="txt2colr">  "India", </span> <br>
+                                                <span>"surveyLink" </span>:<span class="txt2colr">  "https://st-redirect.imadconnect.com/Router/Index?tid=xxxx&uid=[identifier]", </span> <br>
+                                                <span>"loi" </span>:<span class="txt2colr">  12, </span> <br>
+                                                <span>"ir" </span>:<span class="txt2colr">  "65.00", </span> <br>
+                                                <span>"startDate" </span>:<span class="txt2colr">  "2020-12-30", </span> <br>
+                                                <span>"endDate" </span>:<span class="txt2colr">  "2021-02-28", </span> <br>
+                                                <span>"sampleSize" </span>:<span class="txt2colr">  50, </span> <br>
+                                            <span>"deviceType" </span>: {<br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"mobile" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"tablet" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"desktop" </span>:<span class="txt2colr">  true </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; }, <br>
+                                            }<br><br>
+                                            
+                                            {<br>
+                                                <span>"projectId" </span>:<span class="txt2colr">  IMC50006, </span> <br>
+                                                <span>"projectCode" </span>:<span class="txt2colr">  "IMC50006", </span> <br>
+                                                <!-- <span>"projectName" </span>:<span class="txt2colr">  "Social Media usage", </span> <br> -->
+                                                <span>"projectCategory" </span>:<span class="txt2colr">  "Healthcare", </span> <br>
+                                                <span>"cpi" </span>:<span class="txt2colr">  "12.50", </span> <br>
+                                                <span>"countryCode" </span>:<span class="txt2colr">  "US", </span> <br>
+                                                <span>"country" </span>:<span class="txt2colr">  "United States", </span> <br>
+                                                <span>"surveyLink" </span>:<span class="txt2colr">  "https://st-redirect.imadconnect.com/Router/Index?tid=xxxx&uid=[identifier]", </span> <br>
+                                                <span>"loi" </span>:<span class="txt2colr">  25, </span> <br>
+                                                <span>"ir" </span>:<span class="txt2colr">  "45.00", </span> <br>
+                                                <span>"startDate" </span>:<span class="txt2colr">  "2021-01-14", </span> <br>
+                                                <span>"endDate" </span>:<span class="txt2colr">  "2021-01-31", </span> <br>
+                                                <span>"sampleSize" </span>:<span class="txt2colr">  100, </span> <br>
+                                            <span>"deviceType" </span>: {<br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"mobile" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"tablet" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"desktop" </span>:<span class="txt2colr">  true </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; }, <br>
+                                            }
+                                        </p>
+                                        </div>
+                                        <!-- <div id="pane-B" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                                        </div>
+                                        <div id="pane-C" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <!--col-6 clse-->
+                        </div>
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse3" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Project Details: </h5>
+                                    <p>This API will allow supplier(s) to get the project details for the particular mapped project. </p>
+                                    <h3 class="subttl-table"> Query Parameters </h3>
+                                    <div class="table-responsive">
+                                        <table class="prameter-tbl table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Property</th>
+                                                <th>Type</th>
+                                                <th>Required</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ProjectId </td>
+                                                <td>Integer</td>
+                                                <td>Yes</td>
+                                                <td>Project Id of particular Project (like: IMR 1632)</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane-5" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                        <!-- <li class="nav-item">
+                                        <a id="tab-B" href="#pane-6" class="nav-link" data-toggle="tab" role="tab">PHP</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a id="tab-C" href="#pane-7" class="nav-link" data-toggle="tab" role="tab">Node.js</a>
+                                        </li> -->
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane-5" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetProjectDetails?ProjectId=50001' </span> \ --header 'x-api-key: Key Provided to you'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Type</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span> "Type" </span>: <span class="txt2colr"> GET,<br> </span>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            {<br>
+                                            <span>"projectId" </span>:<span class="txt2colr">  50001, </span> <br>
+                                            <span>"projectCode" </span>:<span class="txt2colr">  "IMC50001", </span> <br>
+                                            <!-- <span>"projectName" </span>:<span class="txt2colr">  "Survey Link Test", </span> <br> -->
+                                            <span>"projectCategory" </span>:<span class="txt2colr">  "Healthcare", </span> <br>
+                                            <span>"cpi" </span>:<span class="txt2colr">  "0.50", </span> <br>
+                                            <span>"countryCode" </span>:<span class="txt2colr">  "IN", </span> <br>
+                                            <span>"country" </span>:<span class="txt2colr">  "India", </span> <br>
+                                            <span>"surveyLink" </span>:<span class="txt2colr">  "https://st-redirect.imadconnect.com/Router/Index?tid=xxxx&uid=[identifier]", </span> <br>
+                                            <span>"loi" </span>:<span class="txt2colr">  2, </span> <br>
+                                            <span>"ir" </span>:<span class="txt2colr">  "45", </span> <br>
+                                            <span>"startDate" </span>:<span class="txt2colr">  "2020-12-30", </span> <br>
+                                            <span>"endDate" </span>:<span class="txt2colr">  "2021-02-28", </span> <br>
+                                            <span>"sampleSize" </span>:<span class="txt2colr">  100, </span> <br>
+                                            <span>"deviceType" </span>: {<br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"mobile" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"tablet" </span>:<span class="txt2colr">  true, </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <span>"desktop" </span>:<span class="txt2colr">  true </span> <br>
+                                                &nbsp; &nbsp; &nbsp; &nbsp; }, <br>
+                                            }
+                                        </p>
+                                        </div>
+                                        <!-- <div id="pane-6" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                                        </div>
+                                        <div id="pane-7" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse5" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Targeting: </h5>
+                                    <p> This API will allow a supplier(s) to get targeting associated with each project.</p>
+                                    <h3 class="subttl-table">Query Parameters</h3>
+                                    <div class="table-responsive">
+                                        <table class="prameter-tbl table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Property</th>
+                                                <th>Type</th>
+                                                <th>Required</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ProjectId </td>
+                                                <td>Integer</td>
+                                                <td>Yes</td>
+                                                <td>Project Id of particular Project (like: IMR 0105)</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane-11" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                        <!-- <li class="nav-item">
+                                        <a id="tab-B" href="#pane-12" class="nav-link" data-toggle="tab" role="tab">PHP</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a id="tab-C" href="#pane-13" class="nav-link" data-toggle="tab" role="tab">Node.js</a>
+                                        </li> -->
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane-11" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetProjectTargetting?ProjectId=50001' </span> \ --header 'x-api-key: Key Provided to you'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Type</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span> "Type" </span>: <span class="txt2colr"> GET,<br> </span>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            [<br>
+                                            {<br>
+                                            <span> "languageCode": </span>: <span class="txt2colr"> EN,<br> </span>
+                                            <span> "questionId": </span>: <span class="txt2colr"> 10001,<br> </span>
+                                            <span>"questionDesc" </span>:<span class="txt2colr">  "What is your age?", </span> <br>
+                                            <span> "questionTitle" </span>:  <span class="txt2colr"> "AGE",</span> <br>
+                                            <span>"optionId" </span>:  <span class="txt2colr"> 1890,</span> <br>
+                                            <span> "questionOptionDesc" </span>:  <span class="txt2colr"> "18-25",</span> <br>
+                                            <!-- <span>"quota" </span>:  <span class="txt2colr"> 100 </span> <br> -->
+                                            },  <br>
+
+                                            {<br>
+                                            <span> "languageCode": </span>: <span class="txt2colr"> EN,<br> </span>
+                                            <span> "questionId": </span>: <span class="txt2colr"> 10002,<br> </span>
+                                            <span>"questionDesc" </span>:<span class="txt2colr">  "What is your gender?", </span> <br>
+                                            <span> "questionTitle" </span>:  <span class="txt2colr"> "GENDER",</span> <br>
+                                            <span>"optionId" </span>:  <span class="txt2colr"> 50001,</span> <br>
+                                            <span> "questionOptionDesc" </span>:  <span class="txt2colr"> "Male",</span> <br>
+                                            <!-- <span>"quota" </span>:  <span class="txt2colr"> 0 </span> <br> -->
+                                            },  <br>
+
+                                            {<br>
+                                            <span> "languageCode": </span>: <span class="txt2colr"> EN,<br> </span>
+                                            <span> "questionId": </span>: <span class="txt2colr"> 10002,<br> </span>
+                                            <span>"questionDesc" </span>:<span class="txt2colr">  "What is your gender?", </span> <br>
+                                            <span> "questionTitle" </span>:  <span class="txt2colr"> "GENDER",</span> <br>
+                                            <span>"optionId" </span>:  <span class="txt2colr"> 50002,</span> <br>
+                                            <span> "questionOptionDesc" </span>:  <span class="txt2colr"> "Female",</span> <br>
+                                            <!-- <span>"quota" </span>:  <span class="txt2colr"> 0 </span> <br> -->
+                                            },  <br>
+
+                                            {<br>
+                                            <span> "languageCode": </span>: <span class="txt2colr"> EN,<br> </span>
+                                            <span> "questionId": </span>: <span class="txt2colr"> 10071,<br> </span>
+                                            <span>"questionDesc" </span>:<span class="txt2colr">  "What is your current employment status?", </span> <br>
+                                            <span> "questionTitle" </span>:  <span class="txt2colr"> "EMPLOYMENT",</span> <br>
+                                            <span>"optionId" </span>:  <span class="txt2colr"> 51178,</span> <br>
+                                            <span> "questionOptionDesc" </span>:  <span class="txt2colr"> "Employed full-time",</span> <br>
+                                            <!-- <span>"quota" </span>:  <span class="txt2colr"> 0 </span> <br> -->
+                                            },  <br>
+
+                                            {<br>
+                                            <span> "languageCode": </span>: <span class="txt2colr"> EN,<br> </span>
+                                            <span> "questionId": </span>: <span class="txt2colr"> 10071,<br> </span>
+                                            <span>"questionDesc" </span>:<span class="txt2colr">  "What is your current employment status?", </span> <br>
+                                            <span> "questionTitle" </span>:  <span class="txt2colr"> "EMPLOYMENT",</span> <br>
+                                            <span>"optionId" </span>:  <span class="txt2colr"> 51179,</span> <br>
+                                            <span> "questionOptionDesc" </span>:  <span class="txt2colr"> "Employed part-time",</span> <br>
+                                            <!-- <span>"quota" </span>:  <span class="txt2colr"> 0 </span> <br> -->
+                                            },  <br>
+
+                                            {<br>
+                                            <span> "languageCode": </span>: <span class="txt2colr"> EN,<br> </span>
+                                            <span> "questionId": </span>: <span class="txt2colr"> 10071,<br> </span>
+                                            <span>"questionDesc" </span>:<span class="txt2colr">  "What is your current employment status?", </span> <br>
+                                            <span> "questionTitle" </span>:  <span class="txt2colr"> "EMPLOYMENT",</span> <br>
+                                            <span>"optionId" </span>:  <span class="txt2colr"> 51180,</span> <br>
+                                            <span> "questionOptionDesc" </span>:  <span class="txt2colr"> "Self-employed full-time",</span> <br>
+                                            <!-- <span>"quota" </span>:  <span class="txt2colr"> 0 </span> <br> -->
+                                            },  <br>
+
+                                            ]<br>
+                                        </p>
+                                        </div>
+                                        <!-- <div id="pane-12" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                                        </div>
+                                        <div id="pane-13" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse6" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Project Quota: </h5>
+                                    <p> This API will allow supplier(s) to get quotas associated with project. Supplier will be provided quota size. </p>
+                                    <h3 class="subttl-table"> Query Parameters </h3>
+                                    <div class="table-responsive">
+                                        <table class="prameter-tbl table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Property</th>
+                                                <th>Type</th>
+                                                <th>Required</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ProjectId </td>
+                                                <td>Integer</td>
+                                                <td>Yes</td>
+                                                <td>Project Id of particular Project (like: IMR 1632)</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane6" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                        <!-- <li class="nav-item">
+                                        <a id="tab-B" href="#pane-12" class="nav-link" data-toggle="tab" role="tab">PHP</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a id="tab-C" href="#pane-13" class="nav-link" data-toggle="tab" role="tab">Node.js</a>
+                                        </li> -->
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane6" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetProjectQuota?ProjectId=50001' </span> \ --header 'x-api-key: Supplier Key Provided'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Type</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span> "Type" </span>: <span class="txt2colr"> GET,<br> </span>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            {<br>
+                                            <span>"quota" </span>:<span class="txt2colr">  100, </span> <br>
+                                            <span>"message" </span>:<span class="txt2colr">  "Quota is available" </span> <br>
+                                            },  <br>
+                                        </p>
+                                        </div>
+                                        <!-- <div id="pane-12" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                                        </div>
+                                        <div id="pane-13" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse7">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse7" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Country List: </h5>
+                                    <p> This API will allow supplier(s) to get country list of the project. This will returns with country code. </p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane7" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                        <!-- <li class="nav-item">
+                                        <a id="tab-B" href="#pane-12" class="nav-link" data-toggle="tab" role="tab">PHP</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a id="tab-C" href="#pane-13" class="nav-link" data-toggle="tab" role="tab">Node.js</a>
+                                        </li> -->
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane7" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetCountry' </span> \ --header 'x-api-key: Supplier Secret Key'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            [{<br>
+                                            <span> "countryId": </span>: <span class="txt2colr"> 1,<br> </span>
+                                            <span>"countryName" </span>:<span class="txt2colr">  "Afghanistan", </span> <br>
+                                            <span>"countryCode" </span>:<span class="txt2colr">  "AF" </span> <br>
+                                            <!-- <span>"client" </span>:<span class="txt2colr">  [ ],  </span> <br>
+                                            <span>"countryLanguageMapping" </span>:<span class="txt2colr">  [ ],  </span> <br>
+                                            <span>"project" </span>:<span class="txt2colr">  [ ], </span> <br>
+                                            <span>"supplier" </span>:<span class="txt2colr">  [ ] </span> <br> -->
+                                            }, <br>
+
+                                            {<br>
+                                            <span> "countryId": </span>: <span class="txt2colr"> 2,<br> </span>
+                                            <span>"countryName" </span>:<span class="txt2colr">  "Albania", </span> <br>
+                                            <span>"countryCode" </span>:<span class="txt2colr">  "AL" </span> <br>
+                                            <!-- <span>"client" </span>:<span class="txt2colr">  [ ],  </span> <br>
+                                            <span>"countryLanguageMapping" </span>:<span class="txt2colr">  [ ],  </span> <br>
+                                            <span>"project" </span>:<span class="txt2colr">  [ ], </span> <br>
+                                            <span>"supplier" </span>:<span class="txt2colr">  [ ] </span> <br> -->
+                                            }, <br>
+                                            
+                                            {<br>
+                                            <span> "countryId": </span>: <span class="txt2colr"> 3,<br> </span>
+                                            <span>"countryName" </span>:<span class="txt2colr">  "Algeria", </span> <br>
+                                            <span>"countryCode" </span>:<span class="txt2colr">  "DZ" </span> <br>
+                                            <!-- <span>"client" </span>:<span class="txt2colr">  [ ],  </span> <br>
+                                            <span>"countryLanguageMapping" </span>:<span class="txt2colr">  [ ],  </span> <br>
+                                            <span>"project" </span>:<span class="txt2colr">  [ ], </span> <br>
+                                            <span>"supplier" </span>:<span class="txt2colr">  [ ] </span> <br> -->
+                                            }, <br>
+                                            
+                                            {<br>
+                                            <span> "countryId": </span>: <span class="txt2colr"> 4,<br> </span>
+                                            <span>"countryName" </span>:<span class="txt2colr">  "American Samoa", </span> <br>
+                                            <span>"countryCode" </span>:<span class="txt2colr">  "AS" </span> <br>
+                                            <!-- <span>"client" </span>:<span class="txt2colr">  [ ],  </span> <br>
+                                            <span>"countryLanguageMapping" </span>:<span class="txt2colr">  [ ],  </span> <br>
+                                            <span>"project" </span>:<span class="txt2colr">  [ ], </span> <br>
+                                            <span>"supplier" </span>:<span class="txt2colr">  [ ] </span> <br> -->
+                                            }, <br>
+                                            
+                                            {<br>
+                                            <span> "countryId": </span>: <span class="txt2colr"> 5,<br> </span>
+                                            <span>"countryName" </span>:<span class="txt2colr">  "Andorra", </span> <br>
+                                            <span>"countryCode" </span>:<span class="txt2colr">  "AD" </span> <br>
+                                            }, <br>
+                                            
+                                            {<br>
+                                            <span> "countryId": </span>: <span class="txt2colr"> 251,<br> </span>
+                                            <span>"countryName" </span>:<span class="txt2colr">  "Åland Islands", </span> <br>
+                                            <span>"countryCode" </span>:<span class="txt2colr">  "AX" </span> <br>
+                                            }], <br>
+
+                                        </p>
+                                        </div>
+                                        <!-- <div id="pane-12" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                                        </div>
+                                        <div id="pane-13" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse8">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse8" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Project Status: </h5>
+                                    <p> This API will allow supplier(s) to get project status. </p>
+                                    <p> The possible project status will be; </p>
+                                    <ul style="padding-left:inherit;">
+                                        <li> Active </li>
+                                        <li> Inactive </li>
+                                        <li> Closed </li>
+                                        <!-- <li> Paused </li>
+                                        <li> Hold </li> -->
+                                    </ul>
+                                    <h3 class="subttl-table"> Query Parameters </h3>
+                                    <div class="table-responsive">
+                                        <table class="prameter-tbl table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Property</th>
+                                                <th>Type</th>
+                                                <th>Required</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ProjectId </td>
+                                                <td>Integer</td>
+                                                <td>Yes</td>
+                                                <td>Project Id of particular Project (like: IMR 1632)</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane8" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                        <!-- <li class="nav-item">
+                                        <a id="tab-B" href="#pane-12" class="nav-link" data-toggle="tab" role="tab">PHP</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a id="tab-C" href="#pane-13" class="nav-link" data-toggle="tab" role="tab">Node.js</a>
+                                        </li> -->
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane8" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetProjectStatus?ProjectId=50001 ' </span> \ --header 'x-api-key: Supplier Secret Key'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Type</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span> "Type" </span>: <span class="txt2colr"> GET,<br> </span>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            {<br>
+                                                <span>"projectId" </span>:<span class="txt2colr">  50001, </span> <br>
+                                                <span>"flagId" </span>:<span class="txt2colr">  1, </span> <br>
+                                                <span>"flagStatus" </span>:<span class="txt2colr">  "Active" </span> <br>
+                                            }, <br>
+                                        </p>
+                                        </div>
+                                        <!-- <div id="pane-12" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                                        </div>
+                                        <div id="pane-13" class=" rgtcntnt tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse10">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse10" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Project Statistics: </h5>
+                                    <p> This API will allow supplier to get all stats for specific project. </p>
+                                    <h3 class="subttl-table"> Query Parameters </h3>
+                                    <div class="table-responsive">
+                                        <table class="prameter-tbl table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Property</th>
+                                                <th>Type</th>
+                                                <th>Required</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ProjectId </td>
+                                                <td>Integer</td>
+                                                <td>Yes</td>
+                                                <td>Project Id of particular Project (like: IMR 1632)</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane10" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane10" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetProjectStatistics?ProjectId=50001 ' </span> \ --header 'x-api-key: Supplier Secret Key'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Type</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span> "Type" </span>: <span class="txt2colr"> GET,<br> </span>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            {<br>
+                                            <span>"projectCode" </span>:<span class="txt2colr">  "IMC50001", </span> <br>
+                                            <!-- <span>"projectName" </span>:<span class="txt2colr">  "Survey Link Test", </span> <br> -->
+                                            <span>"country" </span>:<span class="txt2colr">  "India", </span> <br>
+                                            <span>"countryCode" </span>:<span class="txt2colr">  "IN", </span> <br>
+                                            <span>"projectCategory" </span>:<span class="txt2colr">  "Healthcare", </span> <br>
+                                            <span>"cpi" </span>:<span class="txt2colr">  "0.50", </span> <br>
+                                            <span>"fieldLOI" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"fieldIR" </span>:<span class="txt2colr">  "100.00 %", </span> <br>
+                                            <span>"conversion" </span>:<span class="txt2colr">  "100.00 %", </span> <br>
+                                            <span>"dropRate" </span>:<span class="txt2colr">  "0.00 %", </span> <br>
+                                            <span>"remaining" </span>:<span class="txt2colr">  99, </span> <br>
+                                            <span>"lastComplete" </span>:<span class="txt2colr">  "2021-01-04T10:04:12.24", </span> <br>
+                                            <span>"complete" </span>:<span class="txt2colr">  "1", </span> <br>
+                                            <span>"terminate" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"fraudSurveyQualityTerm" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"overQuota" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"dropout" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"dupliCateUser" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"geoIPMismatch" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"uniqueIP" </span>:<span class="txt2colr">  "0", </span> <br>
+                                            <span>"preScreenTerminate" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"deviceType" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"rejected" </span>:<span class="txt2colr">  0, </span> <br>
+                                            <span>"testLink" </span>:<span class="txt2colr">  0, </span> <br>
+                                            }, <br>
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse11">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse11" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Redirect Links: </h5>
+                                    <p> This API will allow supplier to get their Redirect Links for specific project. </p>
+                                    <h3 class="subttl-table"> Query Parameters </h3>
+                                    <div class="table-responsive">
+                                        <table class="prameter-tbl table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Property</th>
+                                                    <th>Type</th>
+                                                    <th>Required</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>ProjectId </td>
+                                                    <td>Integer</td>
+                                                    <td>Yes</td>
+                                                    <td>Project Id of particular Project</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane11" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane11" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            POST <span>'https://st-api.imadconnect.com/v1.0/Supplier/SetRedirectLinks?ProjectId=50001' </span> \ --header 'x-api-key: Supplier Secret Key'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Type</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span> "Type" </span>: <span class="txt2colr"> POST,<br> </span>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Body</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            {<br>
+                                            <span>"Complete" </span>:<span class="txt2colr">  "https://<supplierdomain>/Thanks/Index?sid=fMbeBVAn&status=c&uid=[identifier]", </span> <br>
+                                            <span>"Terminate" </span>:<span class="txt2colr">  "https://<supplierdomain>/Thanks/Index?sid=fMbeBVAn&status=t&uid=[identifier]", </span> <br>
+                                            <span>"OverQuota" </span>:<span class="txt2colr">  "https://<supplierdomain>/Thanks/Index?sid=fMbeBVAn&status=q&uid=[identifier]", </span> <br>
+                                            <span>"Close" </span>:<span class="txt2colr">  "https://<supplierdomain>/Thanks/Index?sid=fMbeBVAn&status=sc&uid=[identifier]", </span> <br>
+                                            <span>"QualityTerm" </span>:<span class="txt2colr">  " https://<supplierdomain>/Thanks/Index?sid=fMbeBVAn&status=f&uid=[identifier]", </span> <br>
+                                            }, <br>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span class="txt3colr">  Link updated successfully. </span> <br>
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse12">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse12" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Question Library: </h5>
+                                    <p> This API will allow supplier to get all Questions for specific country language. </p>
+                                    <p> Question List can be retrived for any specific language code and country code combination.  </p>
+                                    <!-- <p> Ex: <strong> GET 'https://st-api.imadconnect.com/GetQuestionLibrary?langCode=EN' \ --header 'x-api-key: Supplier Secret Key' </strong>  </p> -->
+                                    <h3 class="subttl-table"> Query Parameters </h3>
+                                    <div class="table-responsive">
+                                        <table class="prameter-tbl table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align:left;">Property</th>
+                                                <th>Type</th>
+                                                <th>Required</th>
+                                                <th style="text-align:left;">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align:left;">CountryCode </td>
+                                                <td>string</td>
+                                                <td>Yes</td>
+                                                <td style="text-align:left;"> Question list based on country selected </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left;">LangCode </td>
+                                                <td>string</td>
+                                                <td>Yes</td>
+                                                <td style="text-align:left;"> Question list based on language selected </td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <p> Please download the reference CountryCode master file. <a href="images/Country_Master.xlsx" class="btn btn-default dlLang"  target="_blank"> Download</a> </p>
+                                    <p> Please download the reference LanguageCode master file. <a href="images/Language_Master.xlsx" class="btn btn-default dlLang"  target="_blank"> Download</a> </p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane12" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane12" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetQuestionLibrary?CountryCode=US&LangCode=EN' </span> \ --header 'x-api-key: Supplier Secret Key'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Type</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span> "Type" </span>: <span class="txt2colr"> GET,<br> </span>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            [<br>
+                                                {<br>
+                                                    <span>"questionId" </span>:<span class="txt2colr">  269, </span> <br>
+                                                    <span>"questionTitle" </span>:<span class="txt2colr">  "ACCOMMODATION_TYPE", </span> <br>
+                                                    <span>"questionDesc" </span>:<span class="txt2colr">  "In which type of accommodation have you stayed in the past year?", </span> <br>
+                                                    <span>"languageCode" </span>:<span class="txt2colr">  "EN", </span> <br>
+                                                    <span>"countryCode" </span>:<span class="txt2colr">  "US", </span> <br>
+                                                }, <br>
+                                                {<br>
+                                                    <span>"questionId" </span>:<span class="txt2colr">  270, </span> <br>
+                                                    <span>"questionTitle" </span>:<span class="txt2colr">  "AGE", </span> <br>
+                                                    <span>"questionDesc" </span>:<span class="txt2colr">  "What is your age?", </span> <br>
+                                                    <span>"languageCode" </span>:<span class="txt2colr">  "EN", </span> <br>
+                                                    <span>"countryCode" </span>:<span class="txt2colr">  "US", </span> <br>
+                                                }, <br>
+                                                {<br>
+                                                    <span>"questionId" </span>:<span class="txt2colr">  271, </span> <br>
+                                                    <span>"questionTitle" </span>:<span class="txt2colr">  "ALCOHOL_FREQUENCY", </span> <br>
+                                                    <span>"questionDesc" </span>:<span class="txt2colr">  "On average, how many alcoholic drinks do you consume in a week?", </span> <br>
+                                                    <span>"languageCode" </span>:<span class="txt2colr">  "EN", </span> <br>
+                                                    <span>"countryCode" </span>:<span class="txt2colr">  "US", </span> <br>
+                                                }, <br>
+                                                {<br>
+                                                    <span>"questionId" </span>:<span class="txt2colr">  272, </span> <br>
+                                                    <span>"questionTitle" </span>:<span class="txt2colr">  "AUTO_BRANDS", </span> <br>
+                                                    <span>"questionDesc" </span>:<span class="txt2colr">  "If you own/lease a car(s), which brand(s) are they?", </span> <br>
+                                                    <span>"languageCode" </span>:<span class="txt2colr">  "EN", </span> <br>
+                                                    <span>"countryCode" </span>:<span class="txt2colr">  "US", </span> <br>
+                                                }, <br>
+                                            ]<br>
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse13">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse13" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5>  Get Question Options: </h5>
+                                    <p> This API will allow supplier to get all Question Options for specific question. </p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane13" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane13" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetQuestionOptions?Id=10002' </span> \ --header 'x-api-key: Supplier Secret Key'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn"> Type</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            <span> "Type" </span>: <span class="txt2colr"> GET,<br> </span>
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            [<br>
+                                                {<br>
+                                                    <span>"optionId" </span>:<span class="txt2colr">  50001, </span> <br>
+                                                    <span>"questionId" </span>:<span class="txt2colr">  10002, </span> <br>
+                                                    <span>"optionText" </span>:<span class="txt2colr">  "Male", </span> <br>
+                                                    <span>"order" </span>:<span class="txt2colr">  1, </span> <br>
+                                                    <span>"languageCode" </span>:<span class="txt2colr">  "en", </span> <br>
+                                                }, <br>
+                                                {<br>
+                                                    <span>"optionId" </span>:<span class="txt2colr">  50002, </span> <br>
+                                                    <span>"questionId" </span>:<span class="txt2colr">  10002, </span> <br>
+                                                    <span>"optionText" </span>:<span class="txt2colr">  "Female", </span> <br>
+                                                    <span>"order" </span>:<span class="txt2colr">  2, </span> <br>
+                                                    <span>"languageCode" </span>:<span class="txt2colr">  "en", </span> <br>
+                                                }, <br>
+                                                {<br>
+                                                    <span>"optionId" </span>:<span class="txt2colr">  50003, </span> <br>
+                                                    <span>"questionId" </span>:<span class="txt2colr">  10002, </span> <br>
+                                                    <span>"optionText" </span>:<span class="txt2colr">  "Transgender", </span> <br>
+                                                    <span>"order" </span>:<span class="txt2colr">  3, </span> <br>
+                                                    <span>"languageCode" </span>:<span class="txt2colr">  "en", </span> <br>
+                                                }, <br>
+                                            ]<br>
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse14">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse14" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5>  Get Authorization Key : </h5>
+                                    <p> Any authorized Supplier or Client can generate/view Autorization key using below link. </p>
+                                    <a href="https://st-redirect.imadconnect.com/Account/GenerateAuthorizationCode" target="_blank"> https://st-redirect.imadconnect.com/Account/GenerateAuthorizationCode </a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane14" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane14" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                      
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div> -->
+                        
+                        <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse15">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse15" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5>  Hashing Mechanism : Redirect URL for complete </h5>
+                                    <p> imadconnect uses Hashing Mechanism for the encryption using SHA1 Encryption. </p>
+                                    <h5>  Steps to generate hash - </h5>
+                                    <ol style="padding-left:inherit;">
+                                        <li> Secret key, is required to generate hash, and will be provided by imadconnect Manager. For eg. 9S9z4T9K6hyqEMlkoATOpZFZpLT5Urgc </li>
+                                        <li> imadconnect will use complete URL without hash variable in it. For eg. 
+                                            <br> <p class="apiColorB"> <strong> https://supplierurl.com/thanks?status=c&uid=4E53F51A-632D-4CC4-889E-EEED30A0673E </strong></p>  </li>
+                                    </ol>
+                                    <p> Sample C# code to generate hash : </p>
+                                    <span> public static string HashString(string StringToHash, string HachKey) </span> <br>
+                                    <span> { </span> <br>
+                                        <div class="" style="padding-left: 20px;">
+                                            <span> System.Text.UTF8Encoding myEncoder = new System.Text.UTF8Encoding();</span> <br>
+                                            <span> byte[ ] Key = myEncoder.GetBytes(HachKey); </span> <br>
+                                            <span> byte[ ] Text = myEncoder.GetBytes(StringToHash); </span> <br>
+                                            <span> System.Security.Cryptography.HMACSHA1 myHMACSHA1 = new  </span> <br>
+                                            <span> System.Security.Cryptography.HMACSHA1(Key); </span> <br>
+                                            <span> byte[ ] HashCode = myHMACSHA1.ComputeHash(Text); </span> <br>
+                                            <span> string hash = BitConverter.ToString(HashCode).Replace("-", ""); </span> <br>
+                                            <span> return hash.ToLower(); </span> <br>
+                                        </div>
+                                    <span> } </span> <br>
+                                    <p> <strong> Generated Hash = “6c8e890b31f489780a3796e02f64c4551ec85eb1”.</strong> Add this hash value in the URL mentioned in step 2. </p>
+                                    <p> Final URL which will be redirected as below:</p>
+                                    <p class="apiColorB"> <strong> https://supplierurl.com/thanks?status=c&uid=4E53F51A-632D-4CC4-889E-EEED30A0673E&hash= 6c8e890b31f489780a3796e02f64c4551ec85eb1 </strong> </p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane15" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane15" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="vertab-content">
+                            <div class="col-lg-6 col-md-6 col-sm-12 midside-api">
+                            <div class="panel-heading">
+                                <h4 class="panel-title splrapi" data-toggle="collapse" data-parent="#accordion" data-target="#collapse9">
+                                Supplier API
+                                </h4>
+                            </div>
+                            <div id="collapse9" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h5> Get Project Quota </h5>
+                                    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti laudantium saepe laboriosam odit id facilis quibusdam. Inventore labore beatae sint quis nulla esse pariatur! Ducimus, temporibus! Enim odit et ducimus? </p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <div class=" rgtside-api">
+                                <div class="righttabs">
+                                    <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                        <a id="tab-A" href="#pane9" class="nav-link active" data-toggle="tab" role="tab">Curl</a>
+                                        </li>
+                                    </ul>
+                                    <div id="content" class="tab-content" role="tablist">
+                                        <div id="pane9" class="tab-pane fade show active rgtcntnt" role="tabpanel" aria-labelledby="tab-A">
+                                        <blockquote>
+                                            <p class="dfntn">Location Request </p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            GET <span>'https://st-api.imadconnect.com/v1.0/Supplier/GetProjectQuota?ProjectId=2' </span> \ --header 'x-api-key: Supplier Secret key'
+                                        </p>
+                                        <br>
+                                        <blockquote>
+                                            <p class="dfntn">Example Response</p>
+                                        </blockquote>
+                                        <p class="highlight html">
+                                            {<br>
+                                            <span> "quota": </span>: <span class="txt2colr"> 6,<br> </span>
+                                            <span>"message" </span>:<span class="txt2colr">  "Quota is available" </span> <br>
+                                            }, <br>
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div> -->
+                    </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+     
+     
+     <script>
+         // Screen-width breakpoint
+         var tc_breakpoint = 767;
+
+         jQuery(document).ready(function()
+         {
+         	"use strict";
+
+         	// Switch tabs and update panels classes - Adjust container height
+             jQuery(".vertab-container .vertab-menu .list-group a").click(function(e)
+         	{
+                 var index = jQuery(this).index();
+         		var container = jQuery(this).parents('.vertab-container');
+         		var accordion = container.find('.vertab-accordion');
+         		var contents = accordion.find(".vertab-content");
+
+         		e.preventDefault();
+
+                 jQuery(this).addClass("active");
+                 jQuery(this).siblings('a.active').removeClass("active");
+
+         		contents.removeClass("active");
+                 contents.eq(index).addClass("active");
+         		container.data('current',index);
+
+         		//Adjust container height
+         		jQuery(this).parents('.vertab-menu').css('min-height',jQuery(container).children('.vertab-accordion').height() + 20);
+             });
+
+         	// Collapse accordion panels (except the one the user just opened) and add "active" class to the panel heading
+         	jQuery('.vertab-accordion').on('show.bs.collapse','.collapse', function()
+         	{
+         		var accordion, container, current, index;
+
+         		accordion = jQuery(this).parents('.vertab-accordion');
+         		container = accordion.parents('.vertab-container');
+
+         		accordion.find('.collapse.in').each(function()
+         		{
+         			jQuery(this).collapse('hide');
+         		});
+
+         		jQuery(this).siblings('.panel-heading').addClass('active');
+
+         		current = accordion.find('.panel-heading.active');
+         		index = accordion.find('.panel-heading').index(current);
+
+         		container.data('current',index);
+         	});
+
+         	// Remove "active" class from heading when collapsing the current panel
+         	jQuery('.vertab-accordion .panel-collapse').on('hide.bs.collapse', function () {
+         		jQuery(this).siblings('.panel-heading').removeClass('active');
+         	});
+
+         	// Manage resize / rotation events
+         	jQuery( window ).on( "resize orientationchange", function(  )
+         	{
+         		resize_vertical_accordions();
+         	});
+
+         	// Scroll accordion to show the current panel
+         	jQuery(".vertab-accordion .panel-heading").click(function ()
+         	{
+         		var el = this;
+         		setTimeout(function(){jQuery("html, body").animate({scrollTop: jQuery(el).offset().top - 10 }, 1000);},500);
+
+         		return true;
+         	});
+
+         	//Initial Panels setup
+         	resize_vertical_accordions(  );
+         });
+
+         function resize_vertical_accordions(  )
+         {
+         	"use strict";
+         	jQuery('.vertab-container').each(function(i, e)
+         	{
+         		var index, menu, contents;
+         		var container = jQuery(this);
+
+         		// Setup current tab/panel (default to first tab/panel)
+         		index = jQuery(this).data('current');
+         		if(index === undefined)
+         		{
+         			jQuery(this).data('index',0);
+         			index = 0;
+         		}
+
+         		// If using a desktop-size screen, manage as tabbed panels
+         		if( jQuery( window ).width() > tc_breakpoint)
+         		{
+         			// Reset panels heights (Bootstrap's accordions sets heights to zero)
+         			jQuery(this).find('.panel-collapse.collapse').css('height','auto');
+
+         			// Clean tab-navigation styles
+         			menu = jQuery(this).find('.vertab-menu .list-group a');
+         			menu.removeClass("active");
+
+         			// Clean tab-panels styles
+         			contents = jQuery(this).find(".vertab-accordion .vertab-content");
+         			contents.removeClass("active");
+
+         			// Update tab navigation and panels styles
+         			menu.eq(index).addClass('active');
+         			contents.eq(index).addClass("active");
+
+         			// Update tab navigation's height to match current tab
+         			jQuery(this).children('.vertab-menu').css('min-height',jQuery(this).children('.vertab-accordion').height() + 20);
+         		}
+         		else // If using a mobile device (phone + tablets), manage as accordion
+         		{
+         			// Close all panels
+         			jQuery(this).find('.vertab-content .panel-collapse.collapse').collapse('hide');
+
+         			// Clean styles from headings
+         			jQuery(this).find('.vertab-content .panel-heading').removeClass('active');
+
+         			// Wait until all panels have collapsed and mark the one the user selected as active.
+         			setTimeout(function()
+         			{
+         				jQuery(container).find('.vertab-content .panel-heading').eq(index).addClass("active");
+         				jQuery(container).find('.vertab-content .panel-collapse.collapse').eq(index).collapse('show');
+         			},1000);
+
+         		}
+         	});
+         }
+      </script>
+   </body>
+</html>
